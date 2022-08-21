@@ -1,6 +1,6 @@
 import { pathfinderImage, pathfinderSVG } from "./findPath.js";
 import { dft } from "./fourier.js";
-import { epiCycles } from "./epicycles.js";
+import { epiCycles, MAX_ITERATIONS } from "./epicycles.js";
 import { wave_circle_sketch } from "./waveCircle.js";
 import { userSketch } from "./userSketch.js";
 import { removeCanvas, addScrollEvenListener } from "./util.js";
@@ -80,8 +80,13 @@ function myhandler(arr) {
         fourierX.sort((a, b) => b.amp - a.amp);
         fourierY.sort((a, b) => b.amp - a.amp);
 
-        allFourierX.push(fourierX);
-        allFourierY.push(fourierY);
+        // trim the list
+        console.log(fourierX.slice(0, MAX_ITERATIONS + 1));
+        console.log(fourierY.slice(0, MAX_ITERATIONS + 1));
+
+        // trim the list
+        allFourierX.push(fourierX.slice(0, MAX_ITERATIONS + 1));
+        allFourierY.push(fourierY.slice(0, MAX_ITERATIONS + 1));
 
         x.length = 0;
         y.length = 0;

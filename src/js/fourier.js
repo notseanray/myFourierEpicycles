@@ -23,6 +23,7 @@ export function dft(pFIVE, points) {
     let phase = pFIVE.atan2(im, re); //Returns phase.
     fourierCoef[k] = { re, im, freq, amp, phase };
   }
+	// console.log(fourierCoef)
   return fourierCoef;
 }
 
